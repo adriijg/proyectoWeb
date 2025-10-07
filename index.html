@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio | StudentsJobs</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">StudentsJobs</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="red.html">Mi Red</a></li>
+        <li><a href="empleos.html">Empleos</a></li>
+        <li><a href="mensajes.html">Mensajes</a></li>
+        <li><a href="notificaciones.html">Notificaciones</a></li>
+        <li class="menu-yo">
+          <a href="#">Yo ▾</a>
+          <ul class="dropdown">
+            <li><a href="yo.html">Ver perfil</a></li>
+            <li><a href="#">Configuración</a></li>
+            <li><a href="#">Cerrar sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sidebar izquierdo -->
+  <aside class="sidebar-left">
+    <div class="profile-card">
+      <img src="files/juanPerez.avif" alt="Foto de perfil">
+      <h3>Juan Pérez</h3>
+      <p>Desarrollador Web</p>
+      <button>Editar Perfil</button>
+    </div>
+  </aside>
+
+  <!-- Contenido principal -->
+  <main>
+    <section class="post-form">
+      <textarea placeholder="¿Qué quieres compartir?"></textarea>
+      <button>Publicar</button>
+    </section>
+
+    <section class="feed">
+      <article class="post">
+        <div class="post-header">
+          <img src="files/lauraGomez.jpg" alt="Usuario">
+          <div>
+            <h4>Laura Gómez</h4>
+            <p>Hace 2 horas</p>
+          </div>
+        </div>
+        <p>¡Empezando un nuevo proyecto en JavaScript!</p>
+        <div class="post-actions">
+          <button>Me gusta</button>
+          <button>Comentar</button>
+          <button>Compartir</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Sidebar derecho -->
+  <aside class="sidebar-right">
+    <div class="suggestions">
+      <h4>Sugerencias de contactos</h4>
+      <p>Ana Torres <button>Conectar</button></p>
+      <p>Carlos Ruiz <button>Conectar</button></p>
+    </div>
+  </aside>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
