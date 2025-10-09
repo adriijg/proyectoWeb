@@ -2,96 +2,124 @@
    ESTILOS ESPECÍFICOS MI RED
    ========================== */
 
-/* Main container de la página Mi Red */
+/* --- ANULAR GRID GLOBAL DEL BODY --- */
+body {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100vh;
+  background: #f3f2ef;
+  padding: 0;
+  margin: 0;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
 main.network {
-    max-width: 900px;
-    margin: 30px auto 50px;
-    background: white;
-    border-radius: 12px;
-    padding: 25px 30px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto 40px;
+  background: white;
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  flex: 1;
+}
+
+/* --- TÍTULO DE SECCIÓN --- */
+main.network h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #0fa507;
+}
+
+/* --- LISTA DE CONEXIONES --- */
+.connection-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* --- TARJETA DE CONEXIÓN --- */
+.connection-card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.connection-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: #eefbea;
+}
+
+.connection-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #13c20a;
+  margin-bottom: 10px;
+}
+
+.connection-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.connection-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.connection-card button {
+  background: #13c20a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.connection-card button:hover {
+  background: #0fa507;
+  transform: scale(1.05);
+}
+
+/* --- FOOTER --- */
+footer {
+  width: 100%;
+  background: #13c20a;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  border-radius: 8px 8px 0 0;
+  margin-top: auto;
+}
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 768px) {
+  main.network {
+    padding: 20px;
   }
-  
-  /* Título de sección */
-  main.network h2 {
-    font-size: 1.6rem;
-    margin-bottom: 20px;
-    color: #0fa507; /* verde destacado */
+
+  header {
+    border-radius: 0;
   }
-  
-  /* Lista de conexiones en grid */
+}
+
+@media (max-width: 480px) {
   .connection-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1fr;
   }
-  
-  /* Tarjeta de conexión individual */
+
   .connection-card {
-    background: #f9f9f9;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    padding: 12px;
   }
-  
-  .connection-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    background: #eefbea;
-  }
-  
-  .connection-card img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #13c20a;
-    margin-bottom: 10px;
-  }
-  
-  .connection-card h4 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    color: #222;
-  }
-  
-  .connection-card p {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 12px;
-  }
-  
-  .connection-card button {
-    background: #13c20a;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 6px 14px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.2s;
-  }
-  
-  .connection-card button:hover {
-    background: #0fa507;
-  }
-  
-  /* ===== Responsividad ===== */
-  @media (max-width: 768px) {
-    main.network {
-      padding: 20px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .connection-list {
-      grid-template-columns: 1fr;
-    }
-  
-    .connection-card {
-      padding: 12px;
-    }
-  }
-  
+}
+ 
