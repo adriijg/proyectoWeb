@@ -1,0 +1,75 @@
+.comment-box {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.comment-box textarea {
+  width: 100%;
+  min-height: 50px;
+  resize: none;
+  padding: 5px;
+}
+
+.comment-box button {
+  align-self: flex-end;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.comments {
+  margin-top: 10px;
+  border-top: 1px solid #0fa507;
+  padding-top: 5px;
+}
+
+.comment {
+  background-color: #ececec;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 5px;
+  position: relative;
+}
+
+.comment[data-user="Tú"] {
+  background-color: #c7ffc4;
+}
+
+.comment-actions {
+  margin-top: 5px;
+}
+
+.comment-actions button {
+  background: none;
+  border: none;
+  color: #0fa507;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.comment-actions button:hover {
+  text-decoration: underline;
+}
+
+.edit-box {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.edit-box textarea {
+  width: 100%;
+  resize: none;
+  padding: 5px;
+}
+
+.comment[data-user="Tú"] {
+  background-color: #cfffcc;
+}
+
+.comment[data-user="Laura Gómez"] {
+  background-color: #e4ffe2;
+}
+
