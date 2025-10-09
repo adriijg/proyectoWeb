@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Empleos | StudentsJobs</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/empleos.css">
 </head>
 <body>
   <header>
@@ -30,21 +31,41 @@
 
   <main class="jobs">
     <h2>Ofertas de empleo recientes</h2>
-    <div class="job-card">
-      <h3>Desarrollador Java Junior</h3>
-      <p>Empresa: TechWave</p>
-      <p>Ubicación: Madrid</p>
-      <button>Postular</button>
-    </div>
 
-    <div class="job-card">
-      <h3>Diseñador Web</h3>
-      <p>Empresa: CreativeStudio</p>
-      <p>Ubicación: Barcelona</p>
-      <button>Postular</button>
+    <div class="job-list-horizontal">
+      
+      <a href="empleo-detalle.html?job=java-junior" class="job-card">
+        <div class="job-content">
+          <h3>Desarrollador Java Junior</h3>
+          <p><strong>TechWave</strong> • Madrid</p>
+          <p class="short-desc">Desarrollo backend y soporte a proyectos Java en un entorno colaborativo.</p>
+        </div>
+        <div class="apply-btn">Ver más</div>
+      </a>
+
+      <a href="empleo-detalle.html?job=diseñador-web" class="job-card">
+        <div class="job-content">
+          <h3>Diseñador Web</h3>
+          <p><strong>CreativeStudio</strong> • Barcelona</p>
+          <p class="short-desc">Diseño UX/UI y mantenimiento de sitios web responsivos.</p>
+        </div>
+        <div class="apply-btn">Ver más</div>
+      </a>
+
+      <a href="empleo-detalle.html?job=analista-datos" class="job-card">
+        <div class="job-content">
+          <h3>Analista de Datos</h3>
+          <p><strong>DataVision</strong> • Valencia</p>
+          <p class="short-desc">Análisis de datos con Python, SQL y Power BI. Trabajo híbrido.</p>
+        </div>
+        <div class="apply-btn">Ver más</div>
+      </a>
+
     </div>
   </main>
 
-  <script src="js/script.js"></script>
+  <footer>
+    <p>© 2025 StudentsJobs | Tu futuro profesional empieza aquí</p>
+  </footer>
 </body>
 </html>
