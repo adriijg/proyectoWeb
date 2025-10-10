@@ -1,39 +1,10 @@
-.comment-box {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.comment-box textarea {
-  width: 100%;
-  min-height: 50px;
-  resize: none;
-  padding: 5px;
-}
-
-.comment-box button {
-  align-self: flex-end;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.comments {
-  margin-top: 10px;
-  border-top: 1px solid #0fa507;
-  padding-top: 5px;
-}
-
+/* --- Estilos generales de los comentarios --- */
 .comment {
-  background-color: #ececec;
-  padding: 8px;
-  border-radius: 5px;
-  margin-top: 5px;
-  position: relative;
-}
-
-.comment[data-user="Tú"] {
-  background-color: #c7ffc4;
+  background-color: #eaffd6;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 8px;
+  font-family: Arial, sans-serif;
 }
 
 .comment-actions {
@@ -43,33 +14,60 @@
 .comment-actions button {
   background: none;
   border: none;
-  color: #0fa507;
+  color: #007b00;
+  font-size: 0.9rem;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .comment-actions button:hover {
   text-decoration: underline;
 }
 
+/* --- Caja de edición --- */
 .edit-box {
-  margin-top: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  margin-top: 8px;
 }
 
+/* Área de texto */
 .edit-box textarea {
   width: 100%;
+  min-height: 45px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
   resize: none;
-  padding: 5px;
+  font-family: inherit;
+  margin-bottom: 8px;
 }
 
-.comment[data-user="Tú"] {
-  background-color: #cfffcc;
+/* --- Botones de Guardar y Cancelar uno al lado del otro --- */
+.edit-box .buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start; /* puedes cambiar a flex-end si los quieres alineados a la derecha */
 }
 
-.comment[data-user="Laura Gómez"] {
-  background-color: #e4ffe2;
+.edit-box button {
+  background-color: #28a745;      /* Verde */
+  color: white;                   /* Texto blanco */
+  border: none;
+  border-radius: 20px;            /* Bordes redondeados */
+  padding: 6px 14px;              /* Tamaño compacto */
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
+.edit-box button:hover {
+  background-color: #218838;      /* Verde más oscuro al pasar el mouse */
+}
+
+/* --- Botón Cancelar (rojo) --- */
+.edit-box button.cancel-edit {
+  background-color: #dc3545;
+}
+
+.edit-box button.cancel-edit:hover {
+  background-color: #b52b38;
+}

@@ -86,9 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
       editBox.classList.add('edit-box');
       editBox.innerHTML = `
         <textarea>${oldText}</textarea>
-        <button class="save-edit">Guardar</button>
-        <button class="cancel-edit">Cancelar</button>
+        <div class="buttons">
+          <button class="save-edit">Guardar</button>
+          <button class="cancel-edit">Cancelar</button>
+        </div>
       `;
+
       comment.appendChild(editBox);
       comment.querySelector('textarea').focus();
     }
