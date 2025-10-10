@@ -1,0 +1,219 @@
+/* === BASE === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+  background: #f3f2ef;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === HEADER === */
+header {
+  background: #13c20a;
+  color: white;
+  padding: 12px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  margin: 10px;
+}
+
+header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+header nav ul li {
+  margin-left: 20px;
+  position: relative;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+  text-decoration: underline;
+}
+
+/* Dropdown Yo */
+.menu-yo .dropdown {
+  display: none;
+  position: absolute;
+  background: white;
+  color: black;
+  top: 35px;
+  right: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  list-style: none;
+  padding: 10px 0;
+  min-width: 160px;
+  z-index: 10;
+}
+.menu-yo:hover .dropdown {
+  display: block;
+}
+
+/* === LISTA DE EMPLEOS === */
+main.jobs {
+  flex: 1;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 1200px;
+}
+
+main.jobs h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+.job-list-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+/* === TARJETAS DE EMPLEO === */
+.job-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  width: 340px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  border-top: 4px solid transparent;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  border-top: 4px solid #13c20a;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.job-card h3 {
+  color: #13c20a;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.job-card p {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.short-desc {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.apply-btn {
+  background: #13c20a;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  align-self: center;
+  margin-left: 10px;
+  transition: 0.2s;
+}
+
+.apply-btn:hover {
+  background: #0da105;
+}
+
+/* === DETALLE DE EMPLEO === */
+.job-detail {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 800px;
+}
+
+.job-detail-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.job-detail-card h2 {
+  color: #13c20a;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.job-detail-card ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.apply-full {
+  background: #13c20a;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.25s;
+}
+
+.apply-full:hover {
+  background: #0fa507;
+  transform: scale(1.05);
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+  padding: 20px 0;
+  margin-top: auto;
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 850px) {
+  .job-card {
+    width: 100%;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .apply-btn {
+    margin-top: 10px;
+    align-self: flex-start;
+  }
+}
