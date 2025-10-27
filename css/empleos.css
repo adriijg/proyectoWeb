@@ -217,3 +217,41 @@ footer {
     align-self: flex-start;
   }
 }
+
+/* === BUSCADOR DE EMPLEOS === */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.search-bar input {
+  width: 300px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #13c20a;
+  box-shadow: 0 0 5px rgba(19, 194, 10, 0.3);
+}
+
+.search-bar select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.search-bar select:focus {
+  border-color: #13c20a;
+}
