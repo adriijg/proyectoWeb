@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio | StudentsJobs</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/comment.css">
+  <link rel="stylesheet" href="css/inicio.css">
 </head>
 <body>
   <!-- Header -->
@@ -23,7 +22,7 @@
           <ul class="dropdown">
             <li><a href="yo.html">Ver perfil</a></li>
             <li><a href="#">Configuración</a></li>
-            <li><a href="#">Cerrar sesión</a></li>
+            <li><a href="login.html">Cerrar sesión</a></li>
           </ul>
         </li>
       </ul>
@@ -43,11 +42,11 @@
   <!-- Contenido principal -->
   <main>
     <section class="post-form">
-      <textarea placeholder="¿Qué quieres compartir?"></textarea>
-      <button>Publicar</button>
+      <textarea id="nuevaPublicacion" placeholder="¿Qué quieres compartir?"></textarea>
+      <button id="btnPublicar">Publicar</button>
     </section>
 
-    <section class="feed">
+    <section class="feed" id="feed">
       <article class="post">
         <div class="post-header">
           <img src="files/usuario1.png" alt="Usuario">
@@ -75,7 +74,12 @@
     </div>
   </aside>
 
+  <footer>
+    <p>© 2025 StudentsJobs — Todos los derechos reservados</p>
+  </footer>
+
   <script src="js/script.js"></script>
-  <script src="js/comment.js"></script>
+  <script src="js/main.js"></script>
+  <!-- <script src="js/comment.js"></script> -->
 </body>
 </html>

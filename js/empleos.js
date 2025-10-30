@@ -72,4 +72,4 @@ searchInput.addEventListener('keydown', e => {
   }
 });
 
-console.log("✅ Script de empleos cargado correctamente — StudentsJobs");
+// console.log("✅ Script de empleos cargado correctamente — StudentsJobs");

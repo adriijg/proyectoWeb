@@ -1,56 +1,80 @@
-<header>
-  <div class="logo">StudentsJobs</div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="red.html">Mi Red</a></li>
-      <li><a href="empleos.html">Empleos</a></li>
-      <li><a href="mensajes.html">Mensajes</a></li>
-      <li><a href="notificaciones.html">Notificaciones</a></li>
-      <li class="menu-yo">
-        <a href="#">Yo ▾</a>
-        <ul class="dropdown">
-          <li><a href="yo.html">Ver perfil</a></li>
-          <li><a href="#">Configuración</a></li>
-          <li><a href="#">Cerrar sesión</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-</header>
-<section class="mensajes-container">
-  <!-- Lista de conversaciones -->
-  <aside class="lista-conversaciones">
-    <h2>Mensajes</h2>
-    <ul>
-      <li class="conversacion activa" data-id="1">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensajes | StudentsJobs</title>
+  <link rel="stylesheet" href="css/style.css"> <!-- global: header/footer y tipografía -->
+  <link rel="stylesheet" href="css/mensajes.css"> <!-- estilos específicos de mensajes -->
+  <link rel="icon" href="files/favicon.png" type="image/png">
+</head>
+<body>
+
+  <!-- Header global -->
+  <header>
+    <div class="logo">StudentsJobs</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="red.html">Mi Red</a></li>
+        <li><a href="empleos.html">Empleos</a></li>
+        <li><a href="mensajes.html" class="active">Mensajes</a></li>
+        <li><a href="notificaciones.html">Notificaciones</a></li>
+        <li class="menu-yo">
+          <a href="#">Yo ▾</a>
+          <ul class="dropdown">
+            <li><a href="yo.html">Ver perfil</a></li>
+            <li><a href="#">Configuración</a></li>
+            <li><a href="#">Cerrar sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenedor principal -->
+  <section class="mensajes-container">
+    <!-- Lista de conversaciones -->
+    <aside class="lista-conversaciones">
+      <h2>Mensajes</h2>
+      <ul>
+        <li class="conversacion activa" data-id="1">
+          <img src="files/empresa.png" alt="Logo Empresa" class="avatar">
+          <div>
+            <h3>Empresa Tech</h3>
+            <p>Gracias por tu solicitud...</p>
+          </div>
+        </li>
+        <li class="conversacion" data-id="2">
+          <img src="files/usuario1.png" alt="Foto Usuario" class="avatar">
+          <div>
+            <h3>María López</h3>
+            <p>Hola, vi tu perfil...</p>
+          </div>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Ventana de chat -->
+    <main class="ventana-chat">
+      <header class="chat-header">
         <img src="files/empresa.png" alt="Logo Empresa" class="avatar">
-        <div>
-          <h3>Empresa Tech</h3>
-          <p>Gracias por tu solicitud...</p>
-        </div>
-      </li>
-      <li class="conversacion" data-id="2">
-        <img src="files/usuario1.png" alt="Foto Usuario" class="avatar">
-        <div>
-          <h3>María López</h3>
-          <p>Hola, vi tu perfil...</p>
-        </div>
-      </li>
-    </ul>
-  </aside>
-  <!-- Ventana de chat -->
-  <main class="ventana-chat">
-    <header class="chat-header">
-      <img src="files/empresa.png" alt="Logo Empresa" class="avatar">
-      <h3>Empresa Tech</h3>
-    </header>
-    <div class="chat-mensajes"></div>
-    <form class="chat-input">
-      <input type="text" placeholder="Escribe un mensaje..." required>
-      <button type="submit">Enviar</button>
-    </form>
-  </main>
-  <link rel="stylesheet" href="css/mensajes.css">
+        <h3>Empresa Tech</h3>
+      </header>
+      <div class="chat-mensajes"></div>
+      <form class="chat-input">
+        <input type="text" placeholder="Escribe un mensaje..." required>
+        <button type="submit">Enviar</button>
+      </form>
+    </main>
+  </section>
+
+  <!-- Footer global -->
+  <footer>
+    <p>© 2025 StudentsJobs — Todos los derechos reservados</p>
+  </footer>
+
   <script src="js/mensajes.js"></script>
-</section>
+  <script src="js/header.js"></script>
+</body>
+</html>

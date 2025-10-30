@@ -1,3 +1,5 @@
+console.log("Scripts cargado")
+
 document.addEventListener('DOMContentLoaded', () => {
   // --- Menú desplegable "Yo" ---
   const menuYo = document.querySelector('.menu-yo > a');
