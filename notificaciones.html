@@ -5,44 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notificaciones | StudentsJobs</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/notificaciones.css">
 </head>
 <body>
- <!-- Header -->
- <header>
-  <div class="logo">StudentsJobs</div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="red.html">Mi Red</a></li>
-      <li><a href="empleos.html">Empleos</a></li>
-      <li><a href="mensajes.html">Mensajes</a></li>
-      <li><a href="notificaciones.html">Notificaciones</a></li>
-      <li class="menu-yo">
-        <a href="#">Yo ▾</a>
-        <ul class="dropdown">
-          <li><a href="yo.html">Ver perfil</a></li>
-          <li><a href="#">Configuración</a></li>
-          <li><a href="#">Cerrar sesión</a></li>
-        </ul>
+  <!-- Header -->
+  <header>
+    <div class="logo">StudentsJobs</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="red.html">Mi Red</a></li>
+        <li><a href="empleos.html">Empleos</a></li>
+        <li><a href="mensajes.html">Mensajes</a></li>
+        <li><a href="notificaciones.html" class="active">Notificaciones</a></li>
+        <li class="menu-yo">
+          <a href="#">Yo ▾</a>
+          <ul class="dropdown">
+            <li><a href="yo.html">Ver perfil</a></li>
+            <li><a href="#">Configuración</a></li>
+            <li><a href="#">Cerrar sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="notifications-container">
+    <div class="notifications-header">
+      <h2>Notificaciones</h2>
+      <div class="filter-actions">
+        <select id="filterSelect">
+          <option value="todas">Todas</option>
+          <option value="noleidas">No leídas</option>
+          <option value="conexiones">Conexiones</option>
+          <option value="comentarios">Comentarios</option>
+          <option value="empleos">Empleos</option>
+        </select>
+        <button id="markAll">Marcar todas como leídas</button>
+      </div>
+    </div>
+
+    <ul class="notifications-list">
+      <li class="notification unread" data-type="comentarios">
+        <img src="files/usuario1.png" alt="Laura Gómez">
+        <div class="notification-info">
+          <p><strong>Laura Gómez</strong> ha comentado tu publicación.</p>
+          <span class="time">Hace 5 min</span>
+        </div>
+        <button class="mark-read">✓</button>
+      </li>
+
+      <li class="notification" data-type="conexiones">
+        <img src="files/usuario4.png" alt="Carlos Ruiz">
+        <div class="notification-info">
+          <p><strong>Carlos Ruiz</strong> ha aceptado tu solicitud de conexión.</p>
+          <span class="time">Hace 1 hora</span>
+        </div>
+        <button class="mark-read">✓</button>
+      </li>
+
+      <li class="notification unread" data-type="empleos">
+        <img src="files/empresa1.png" alt="TechWave">
+        <div class="notification-info">
+          <p><strong>TechWave</strong> ha visto tu solicitud.</p>
+          <span class="time">Hace 3 horas</span>
+        </div>
+        <button class="mark-read">✓</button>
       </li>
     </ul>
-  </nav>
-</header>
-
-  <main class="notifications">
-    <h2>Notificaciones recientes</h2>
-    <ul>
-      <li>Laura Gómez ha comentado tu publicación.</li>
-      <li>Carlos Ruiz ha aceptado tu solicitud de conexión.</li>
-      <li>TechWave ha visto tu solicitud.</li>
-    </ul>
   </main>
+
   <footer>
     <p>© 2025 StudentsJobs — Todos los derechos reservados</p>
   </footer>
 
-  <script src="js/script.js"></script>
-  <script src="js/header.js"></script>
-
+  <script src="js/notificaciones.js"></script>
 </body>
 </html>
