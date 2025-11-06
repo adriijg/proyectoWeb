@@ -91,5 +91,3 @@ if (postButton && postTextArea && feed) {
   });
 }
 });
-
-  
