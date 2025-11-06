@@ -40,11 +40,28 @@ if (!localStorage.getItem('publicaciones')) {
       id: 1,
       usuario_id: 2,
       contenido: "¡Empezando un nuevo proyecto en JavaScript!",
-      fecha: "2025-10-27 10:00"
+      fecha: new Date("2025-10-27T10:00:00").toISOString()
     }
   ];
   localStorage.setItem('publicaciones', JSON.stringify(publicaciones));
 }
+
+// =======================
+// Función para formatear fecha
+// =======================
+function formatearFecha(fechaStr) {
+  const fecha = new Date(fechaStr);
+  const ahora = new Date();
+  const diffMs = ahora - fecha;
+  const diffMin = Math.floor(diffMs / 60000);
+  const diffHoras = Math.floor(diffMin / 60);
+
+  if (diffMin < 1) return "Hace un momento";
+  if (diffMin < 60) return `Hace ${diffMin} min`;
+  if (diffHoras < 24) return `Hace ${diffHoras} h`;
+  return fecha.toLocaleDateString() + " " + fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
 
 // =======================
 // Mostrar publicaciones
@@ -55,9 +72,13 @@ function cargarFeed() {
 
   const publicaciones = JSON.parse(localStorage.getItem("publicaciones") || "[]");
   const usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
+  const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
   publicaciones.forEach(p => {
     const usuario = usuarios.find(u => u.id === p.usuario_id) || { nombre: "Usuario desconocido", foto: "files/unknown.png" };
+    
+    // Verificamos si el post es del usuario logueado
+    const esAutor = usuarioLogueado && usuarioLogueado.id === p.usuario_id;
 
     const article = document.createElement("article");
     article.classList.add("post");
@@ -66,46 +87,70 @@ function cargarFeed() {
         <img src="${usuario.foto}" alt="${usuario.nombre}">
         <div>
           <h4>${usuario.nombre}</h4>
-          <p>${p.fecha}</p>
+          <p>${formatearFecha(p.fecha)}</p>
         </div>
       </div>
       <p>${p.contenido}</p>
       <div class="post-actions">
-        <button>Me gusta</button>
-        <button>Comentar</button>
+        <button class="btn-like">Me gusta</button>
+        <button class="btn-comentar">Comentar</button>
         <button>Compartir</button>
-        <button onclick="eliminarPublicacion(${p.id})">Eliminar</button>
+        ${esAutor ? `<button class="btn-eliminar" data-id="${p.id}">Eliminar</button>` : ""}
+      </div>
+      <div class="comments" id="comments-${p.id}"></div>
+      <div class="comment-box" style="display:none;">
+        <textarea placeholder="Escribe un comentario..."></textarea>
+        <button class="btn-enviar-comentario" data-id="${p.id}">Enviar</button>
       </div>
     `;
     feed.prepend(article);
   });
+
+  // Activar eventos de botones
+  activarEventosFeed();
 }
+
 
 // =======================
 // Publicar nuevo post
 // =======================
-document.getElementById("btnPublicar").addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", () => {
+  const publicarBtn = document.getElementById("btnPublicar");
   const textarea = document.getElementById("nuevaPublicacion");
-  const contenido = textarea.value.trim();
-  if (!contenido) return;
 
-  const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
-  if (!usuarioLogueado) {
-    alert("Debes iniciar sesión antes de publicar.");
-    return;
+  if (publicarBtn && textarea) {
+    publicarBtn.addEventListener("click", () => {
+      const contenido = textarea.value.trim();
+      if (!contenido) return;
+
+      const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
+      if (!usuarioLogueado) {
+        alert("Debes iniciar sesión antes de publicar.");
+        return;
+      }
+
+      const publicaciones = JSON.parse(localStorage.getItem("publicaciones") || "[]");
+      const nueva = {
+        id: publicaciones.length + 1,
+        usuario_id: usuarioLogueado.id,
+        contenido,
+        fecha: new Date().toISOString()
+      };
+
+      publicaciones.push(nueva);
+      localStorage.setItem("publicaciones", JSON.stringify(publicaciones));
+      textarea.value = "";
+      cargarFeed();
+    });
   }
 
-  const publicaciones = JSON.parse(localStorage.getItem("publicaciones") || "[]");
-  const nueva = {
-    id: publicaciones.length + 1,
-    usuario_id: usuarioLogueado.id,
-    contenido,
-    fecha: new Date().toLocaleString()
-  };
+  // Evento de “Me gusta” global
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('like-btn')) {
+      e.target.textContent = e.target.textContent === 'Me gusta' ? '❤️ Te gusta' : 'Me gusta';
+    }
+  });
 
-  publicaciones.push(nueva);
-  localStorage.setItem("publicaciones", JSON.stringify(publicaciones));
-  textarea.value = "";
   cargarFeed();
 });
 
@@ -119,27 +164,67 @@ function eliminarPublicacion(id) {
   cargarFeed();
 }
 
-// =========================
-// Cambiar usuario al entrar
-// =========================
+// =======================
+// Activar eventos del feed
+// =======================
+function activarEventosFeed() {
+  // Mostrar caja de comentarios
+  document.querySelectorAll(".btn-comentar").forEach(btn => {
+    btn.addEventListener("click", e => {
+      const commentBox = e.target.closest(".post").querySelector(".comment-box");
+      commentBox.style.display = commentBox.style.display === "none" ? "block" : "none";
+    });
+  });
 
+  // Enviar comentario
+  document.querySelectorAll(".btn-enviar-comentario").forEach(btn => {
+    btn.addEventListener("click", e => {
+      const postId = parseInt(btn.dataset.id);
+      const textarea = btn.previousElementSibling;
+      const texto = textarea.value.trim();
+
+      if (!texto) return;
+
+      const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+      const publicaciones = JSON.parse(localStorage.getItem("publicaciones") || "[]");
+      const post = publicaciones.find(p => p.id === postId);
+
+      if (!post.comentarios) post.comentarios = [];
+      post.comentarios.push({
+        usuario: usuario.nombre,
+        texto,
+        fecha: new Date().toLocaleString()
+      });
+
+      localStorage.setItem("publicaciones", JSON.stringify(publicaciones));
+      textarea.value = "";
+      cargarFeed(); // Recarga el feed para mostrar el nuevo comentario
+    });
+  });
+
+  // Eliminar publicación (solo el autor tiene el botón)
+  document.querySelectorAll(".btn-eliminar").forEach(btn => {
+    btn.addEventListener("click", e => {
+      const id = parseInt(e.target.dataset.id);
+      eliminarPublicacion(id);
+    });
+  });
+}
+
+
+// =======================
+// Mostrar datos del usuario logueado en el sidebar
+// =======================
 document.addEventListener("DOMContentLoaded", () => {
   const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
   if (usuario) {
-    const nombreEl = document.getElementById("nombreUsuario");
-    const fotoEl = document.getElementById("fotoPerfil");
+    const fotoPerfil = document.getElementById("fotoPerfil");
+    const nombreUsuario = document.getElementById("nombreUsuario");
+    const profesionUsuario = document.querySelector(".profile-card p");
 
-    nombreEl.textContent = usuario.nombre;
-    fotoEl.src = usuario.foto || "files/default.png";
-  } else {
-    // Si no hay usuario logueado, redirigir al login
-    window.location.href = "login.html";
+    if (fotoPerfil) fotoPerfil.src = usuario.foto || "files/default.png";
+    if (nombreUsuario) nombreUsuario.textContent = usuario.nombre;
+    if (profesionUsuario) profesionUsuario.textContent = usuario.profesion || "";
   }
 });
-
-
-// =======================
-// Cargar feed al iniciar
-// =======================
-cargarFeed();

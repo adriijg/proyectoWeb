@@ -54,6 +54,14 @@ header nav ul li a.active {
   text-decoration: underline;
 }
 
+.mini-foto {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
 /* Menú desplegable */
 .menu-yo .dropdown {
   display: none;

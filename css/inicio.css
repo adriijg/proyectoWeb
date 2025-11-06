@@ -134,6 +134,15 @@ header nav ul li a:hover {
   background: #0fa507;
 }
 
+.mini-foto {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+
 /* ============================
    MAIN CONTENT
 ============================ */
