@@ -166,7 +166,8 @@ header nav ul li a:hover {
 .about,
 .experience,
 .education,
-.interests {
+.interests,
+.applications {
   background: white;
   border-radius: 12px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
@@ -179,20 +180,23 @@ header nav ul li a:hover {
 .about h3,
 .experience h3,
 .education h3,
-.interests h3 {
+.interests h3,
+.applications h3 {
   color: #13c20a;
   margin-bottom: 10px;
 }
 
 .experience ul,
 .education ul,
-.interests ul {
+.interests ul,
+.applications ul {
   list-style: none;
 }
 
 .experience li,
 .education li,
-.interests li {
+.interests li,
+.applications li {
   margin-bottom: 8px;
   color: #444;
 }
@@ -222,7 +226,6 @@ footer {
     gap: 10px;
   }
 }
-
 
 /* === MODAL DE EDICIÓN === */
 .modal {
