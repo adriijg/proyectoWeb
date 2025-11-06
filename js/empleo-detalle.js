@@ -74,6 +74,33 @@ if (jobKey && JOBS[jobKey]) {
     </ul>
     <button class="apply-full">Postular</button>
   `;
+
+  // Postulaciones
+  const btnPostular = document.querySelector(".apply-full");
+  if (btnPostular) {
+    btnPostular.addEventListener("click", () => {
+      let postulaciones = JSON.parse(localStorage.getItem("postulaciones") || "[]");
+      if (!postulaciones.some(post => post.titulo === info.titulo && post.empresa === info.empresa && post.ubicacion === info.ubicacion)) {
+        postulaciones.push({
+          titulo: info.titulo,
+          empresa: info.empresa,
+          ubicacion: info.ubicacion
+        });
+        localStorage.setItem("postulaciones", JSON.stringify(postulaciones));
+        btnPostular.textContent = "¡Postulado!";
+        btnPostular.disabled = true;
+        btnPostular.style.background = "#bbb";
+      }
+    });
+
+    // Si ya está postulado, deshabilitar botón
+    let postulaciones = JSON.parse(localStorage.getItem("postulaciones") || "[]");
+    if (postulaciones.some(post => post.titulo === info.titulo && post.empresa === info.empresa && post.ubicacion === info.ubicacion)) {
+      btnPostular.textContent = "¡Postulado!";
+      btnPostular.disabled = true;
+      btnPostular.style.background = "#bbb";
+    }
+  }
 } else {
   document.querySelector('.job-detail-card').innerHTML = `
     <h2>Empleo no encontrado</h2>
