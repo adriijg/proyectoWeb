@@ -3,12 +3,13 @@
 // =======================
 if (!localStorage.getItem('usuarios')) {
     const usuarios = [
-        {id: 1, nombre: "Juan Pérez", email: "juan@example.com", password: "1234", tipo_usuario: "estudiante"},
-        {id: 2, nombre: "Maria López", email: "maria@example.com", password: "abcd", tipo_usuario: "estudiante"},
-        {id: 3, nombre: "Empresa ABC", email: "contacto@empresaabc.com", password: "admin", tipo_usuario: "empresa"}
+        {id: 1, nombre: "Juan Pérez", email: "juan@example.com", password: "1234", tipo_usuario: "estudiante", foto: "files/usuario1.png"},
+        {id: 2, nombre: "Maria López", email: "maria@example.com", password: "abcd", tipo_usuario: "estudiante", foto: "files/usuario2.png"},
+        {id: 3, nombre: "Empresa ABC", email: "contacto@empresaabc.com", password: "admin", tipo_usuario: "empresa", foto: "files/empresa.png"}
     ];
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
 }
+
 
 // =======================
 // Login
