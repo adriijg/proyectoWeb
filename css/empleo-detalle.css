@@ -1,0 +1,54 @@
+main.job-detail {
+  flex: 1;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 700px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 30px 25px;
+}
+
+main.job-detail h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #0fa507;
+}
+
+.job-detail-card p, 
+.job-detail-card ul {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.job-detail-card ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.job-detail-card hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+.apply-full {
+  background: #13c20a;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.apply-full:hover {
+  background: #0da105;
+}

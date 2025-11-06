@@ -1,0 +1,105 @@
+/* === login.css === */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-container {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .login-container .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #13c20a;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .login-container .logo img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .login-container h2 {
+    color: #13c20a;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+  }
+  
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .login-container label {
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .login-container input {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: all 0.2s;
+  }
+  
+  .login-container input:focus {
+    outline: none;
+    border-color: #13c20a;
+    box-shadow: 0 0 5px rgba(19, 194, 10, 0.3);
+  }
+  
+  .login-container button {
+    background: #13c20a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  
+  .login-container button:hover {
+    background: #0fa507;
+    transform: scale(1.03);
+  }
+  
+  #errorMsg {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: red;
+  }
+  
+  /* Opcional: enlace de "Olvidé mi contraseña" */
+  .login-container .forgot-password {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #13c20a;
+    text-decoration: none;
+  }
+  
+  .login-container .forgot-password:hover {
+    text-decoration: underline;
+  }
+  

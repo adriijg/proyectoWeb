@@ -6,8 +6,11 @@
   <title>Empleos | StudentsJobs</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/empleos.css">
+  <link rel="icon" href="files/favicon.png" type="image/png">
 </head>
 <body>
+
+  <!-- Header global -->
   <header>
     <div class="logo">StudentsJobs</div>
     <nav>
@@ -29,11 +32,21 @@
     </nav>
   </header>
 
+  <!-- Contenido principal -->
   <main class="jobs">
     <h2>Ofertas de empleo recientes</h2>
 
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Buscar por título, empresa o ubicación...">
+      <select id="jobType">
+        <option value="todos">Todos</option>
+        <option value="empleo">Empleos</option>
+        <option value="practica">Prácticas</option>
+      </select>
+    </div>
+
     <div class="job-list-horizontal">
-      
+
       <a href="empleo-detalle.html?job=java-junior" class="job-card">
         <div class="job-content">
           <h3>Desarrollador Java Junior</h3>
@@ -61,11 +74,25 @@
         <div class="apply-btn">Ver más</div>
       </a>
 
+      <a href="empleo-detalle.html?job=marketing-intern" class="job-card practica">
+        <div class="job-content">
+          <h3>Prácticas en Marketing Digital</h3>
+          <p><strong>GrowthLab</strong> • Madrid</p>
+          <p class="short-desc">Apoyo en campañas de redes sociales y análisis de métricas.</p>
+        </div>
+        <div class="apply-btn">Ver más</div>
+      </a>
+
     </div>
   </main>
 
+  <!-- Footer global -->
   <footer>
-    <p>© 2025 StudentsJobs | Tu futuro profesional empieza aquí</p>
+    <p>© 2025 StudentsJobs — Todos los derechos reservados</p>
   </footer>
+
+  <script src="js/empleos.js"></script>
+  <script src="js/header.js"></script>
+
 </body>
 </html>

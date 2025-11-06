@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio | StudentsJobs</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/inicio.css">
 </head>
 <body>
   <!-- Header -->
@@ -21,8 +21,9 @@
           <a href="#">Yo ▾</a>
           <ul class="dropdown">
             <li><a href="yo.html">Ver perfil</a></li>
+            <li><a href="yo.html#postulaciones">Postulaciones</a></li>
             <li><a href="#">Configuración</a></li>
-            <li><a href="#">Cerrar sesión</a></li>
+            <li><a href="login.html">Cerrar sesión</a></li>
           </ul>
         </li>
       </ul>
@@ -32,7 +33,7 @@
   <!-- Sidebar izquierdo -->
   <aside class="sidebar-left">
     <div class="profile-card">
-      <img src="files/juanPerez.avif" alt="Foto de perfil">
+      <img src="files/usuario2.png" alt="Foto de perfil">
       <h3>Juan Pérez</h3>
       <p>Desarrollador Web</p>
       <button>Editar Perfil</button>
@@ -42,26 +43,11 @@
   <!-- Contenido principal -->
   <main>
     <section class="post-form">
-      <textarea placeholder="¿Qué quieres compartir?"></textarea>
-      <button>Publicar</button>
+      <textarea id="nuevaPublicacion" placeholder="¿Qué quieres compartir?"></textarea>
+      <button id="btnPublicar">Publicar</button>
     </section>
 
-    <section class="feed">
-      <article class="post">
-        <div class="post-header">
-          <img src="files/lauraGomez.jpg" alt="Usuario">
-          <div>
-            <h4>Laura Gómez</h4>
-            <p>Hace 2 horas</p>
-          </div>
-        </div>
-        <p>¡Empezando un nuevo proyecto en JavaScript!</p>
-        <div class="post-actions">
-          <button>Me gusta</button>
-          <button>Comentar</button>
-          <button>Compartir</button>
-        </div>
-      </article>
+    <section class="feed" id="feed">
     </section>
   </main>
 
@@ -74,6 +60,12 @@
     </div>
   </aside>
 
+  <footer>
+    <p>© 2025 StudentsJobs — Todos los derechos reservados</p>
+  </footer>
+
   <script src="js/script.js"></script>
+  <script src="js/main.js"></script>
+  <!-- <script src="js/comment.js"></script> -->
 </body>
 </html>

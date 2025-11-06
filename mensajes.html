@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mensajes | StudentsJobs</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css"> <!-- global: header/footer y tipografía -->
+  <link rel="stylesheet" href="css/mensajes.css"> <!-- estilos específicos de mensajes -->
+  <link rel="icon" href="files/favicon.png" type="image/png">
 </head>
 <body>
+
+  <!-- Header global -->
   <header>
     <div class="logo">StudentsJobs</div>
     <nav>
@@ -28,18 +32,49 @@
     </nav>
   </header>
 
-  <main class="messages">
-    <h2>Bandeja de entrada</h2>
-    <div class="chat">
-      <div class="message received">Hola Juan, ¿cómo va tu proyecto?</div>
-      <div class="message sent">¡Va genial! Estoy terminando la interfaz.</div>
-    </div>
-    <div class="message-input">
-      <input type="text" placeholder="Escribe un mensaje...">
-      <button>Enviar</button>
-    </div>
-  </main>
+  <!-- Contenedor principal -->
+  <section class="mensajes-container">
+    <!-- Lista de conversaciones -->
+    <aside class="lista-conversaciones">
+      <h2>Mensajes</h2>
+      <ul>
+        <li class="conversacion activa" data-id="1">
+          <img src="files/empresa.png" alt="Logo Empresa" class="avatar">
+          <div>
+            <h3>Empresa Tech</h3>
+            <p>Gracias por tu solicitud...</p>
+          </div>
+        </li>
+        <li class="conversacion" data-id="2">
+          <img src="files/usuario1.png" alt="Foto Usuario" class="avatar">
+          <div>
+            <h3>María López</h3>
+            <p>Hola, vi tu perfil...</p>
+          </div>
+        </li>
+      </ul>
+    </aside>
 
-  <script src="js/script.js"></script>
+    <!-- Ventana de chat -->
+    <main class="ventana-chat">
+      <header class="chat-header">
+        <img src="files/empresa.png" alt="Logo Empresa" class="avatar">
+        <h3>Empresa Tech</h3>
+      </header>
+      <div class="chat-mensajes"></div>
+      <form class="chat-input">
+        <input type="text" placeholder="Escribe un mensaje..." required>
+        <button type="submit">Enviar</button>
+      </form>
+    </main>
+  </section>
+
+  <!-- Footer global -->
+  <footer>
+    <p>© 2025 StudentsJobs — Todos los derechos reservados</p>
+  </footer>
+
+  <script src="js/mensajes.js"></script>
+  <script src="js/header.js"></script>
 </body>
 </html>
