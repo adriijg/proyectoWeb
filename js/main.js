@@ -76,9 +76,23 @@ function cargarFeed() {
 
   publicaciones.forEach(p => {
     const usuario = usuarios.find(u => u.id === p.usuario_id) || { nombre: "Usuario desconocido", foto: "files/unknown.png" };
-    
-    // Verificamos si el post es del usuario logueado
     const esAutor = usuarioLogueado && usuarioLogueado.id === p.usuario_id;
+
+    // Generar los comentarios si existen
+    let comentariosHTML = "";
+    if (p.comentarios && p.comentarios.length > 0) {
+      comentariosHTML = p.comentarios.map((c, index) => {
+        const esAutorComentario = usuarioLogueado && usuarioLogueado.nombre === c.usuario;
+        return `
+          <div class="comentario">
+            <strong>${c.usuario}</strong>
+            <p>${c.texto}</p>
+            <small>${c.fecha}</small>
+            ${esAutorComentario ? `<button class="btn-eliminar-comentario" data-post-id="${p.id}" data-index="${index}">Eliminar</button>` : ""}
+          </div>
+        `;
+      }).join("");
+    }
 
     const article = document.createElement("article");
     article.classList.add("post");
@@ -97,18 +111,35 @@ function cargarFeed() {
         <button>Compartir</button>
         ${esAutor ? `<button class="btn-eliminar" data-id="${p.id}">Eliminar</button>` : ""}
       </div>
-      <div class="comments" id="comments-${p.id}"></div>
+      <div class="comments" id="comments-${p.id}">
+        ${comentariosHTML}
+      </div>
       <div class="comment-box" style="display:none;">
         <textarea placeholder="Escribe un comentario..."></textarea>
         <button class="btn-enviar-comentario" data-id="${p.id}">Enviar</button>
       </div>
     `;
+
     feed.prepend(article);
   });
 
   // Activar eventos de botones
   activarEventosFeed();
 }
+
+
+// ELIMINAR PUBLICACION
+function eliminarComentario(postId, comentarioIndex) {
+  const publicaciones = JSON.parse(localStorage.getItem("publicaciones") || "[]");
+  const post = publicaciones.find(p => p.id === postId);
+  if (!post || !post.comentarios) return;
+
+  post.comentarios.splice(comentarioIndex, 1); // eliminamos el comentario
+  localStorage.setItem("publicaciones", JSON.stringify(publicaciones));
+  cargarFeed(); // recargamos el feed
+}
+
+
 
 
 // =======================
@@ -202,14 +233,24 @@ function activarEventosFeed() {
     });
   });
 
-  // Eliminar publicación (solo el autor tiene el botón)
+  // Eliminar publicación
   document.querySelectorAll(".btn-eliminar").forEach(btn => {
     btn.addEventListener("click", e => {
       const id = parseInt(e.target.dataset.id);
       eliminarPublicacion(id);
     });
   });
+
+  // Eliminar comentario
+  document.querySelectorAll(".btn-eliminar-comentario").forEach(btn => {
+    btn.addEventListener("click", e => {
+      const postId = parseInt(e.target.dataset.postId);
+      const index = parseInt(e.target.dataset.index);
+      eliminarComentario(postId, index);
+    });
+  });
 }
+
 
 
 // =======================
