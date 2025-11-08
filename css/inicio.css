@@ -134,6 +134,11 @@ header nav ul li a:hover {
   background: #0fa507;
 }
 
+.profile-card a {
+  color: white;
+  text-decoration: none;
+}
+
 .mini-foto {
   width: 28px;
   height: 28px;
