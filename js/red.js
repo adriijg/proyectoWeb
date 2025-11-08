@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   buttons.forEach(button => {
     button.addEventListener("click", (e) => {
       const nombre = e.target.closest(".connection-card").querySelector("h4").textContent;
-      alert(`Funcionalidad de mensajes en desarrollo.\nPronto podrás chatear con ${nombre}.`);
     });
   });
 });

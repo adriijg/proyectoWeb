@@ -23,6 +23,11 @@ main.network h2 {
   gap: 20px;
 }
 
+.connection-list a {
+  color: white;
+  text-decoration: none;
+}
+
 /* Tarjeta de conexión */
 .connection-card {
   background: #f9f9f9;
