@@ -1,18 +1,34 @@
-console.log("Header cargado")
-document.addEventListener("DOMContentLoaded", function() {
+console.log("Header cargado");
+
+(function () {
+  function initHeaderMenu() {
     const menuYo = document.querySelector(".menu-yo > a");
     const dropdown = document.querySelector(".menu-yo .dropdown");
-  
-    menuYo.addEventListener("click", function(e) {
-      e.preventDefault(); // evita que haga scroll al top
+    if (!menuYo || !dropdown) return;
+
+    // Evitar múltiples listeners duplicados
+    menuYo.replaceWith(menuYo.cloneNode(true));
+    const newMenuYo = document.querySelector(".menu-yo > a");
+
+    // Abrir / cerrar menú
+    newMenuYo.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       dropdown.classList.toggle("show");
     });
-  
-    // Opcional: cerrar dropdown al hacer click fuera
-    document.addEventListener("click", function(e) {
-      if (!menuYo.contains(e.target) && !dropdown.contains(e.target)) {
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener("click", (e) => {
+      if (!newMenuYo.contains(e.target) && !dropdown.contains(e.target)) {
         dropdown.classList.remove("show");
       }
     });
-  });
-  
+  }
+
+  // Esperar que el DOM esté listo
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHeaderMenu);
+  } else {
+    initHeaderMenu();
+  }
+})();
